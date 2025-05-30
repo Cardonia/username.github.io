@@ -3,35 +3,255 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>کویزی کۆمپیوتەر ئۆرگەنازەیشن</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>test Website</title>
+    <style>
+        .top-bar {
+    background-color: #0a1f3a;
+    color: rgb(255, 255, 255);
+    padding: 40px 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+.site-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: auto;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('/img/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            z-index: -1;
+        }
+        
+        .data-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 80px 20px; 
+}
+
+.data-box {
+    width: 200px;
+    height: 250px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.data-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.data-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.data-title {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #000000;
+}
+.bottom-bar {
+    background-color: #0a1f3a;
+    color: rgb(255, 255, 255);
+    padding: 15px 10px;
+    
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+}
+
+body {
+    padding-bottom: 60px;
+}
+.social-media {
+    display: flex;
+    gap: 15px;
+    margin-left: auto; 
+    padding-right: 20px;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+@media (max-width: 600px) {
+    .social-media {
+        gap: 10px;
+        padding-right: 10px;
+    }
+    .social-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+@media (max-width: 768px) {
+  
+   body {
+        background-image: url('/img/background.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        
+    }
+    
+    .data-container {
+        flex-direction: row;
+        align-items: center;
+        padding: 100px 10px;
+    }
+    
+    .data-box {
+        width: 100px;
+        height: 210px;
+    }
+    
+    .data-image {
+        height: 140px;
+    }
+    
+    .top-bar, .bottom-bar {
+        padding: 10px 5px;
+    }
+    
+    .site-title {
+        font-size: 1.2rem;
+    }
+    
+    .social-icon {
+        width: 22px;
+        height: 22px;
+    }
+}
+.search-container {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.search-bar {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    width: 200px;
+    transition: width 0.3s ease;
+}
+
+.search-bar:focus {
+    outline: none;
+    width: 250px;
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        width: 120px;
+        padding: 6px 12px;
+    }
+    .search-bar:focus {
+        width: 150px;
+    }
+}
+    </style>
 </head>
 <body>
-    <div class="quiz-container">
-        <header>
-            <h1>کویزی کۆمپیوتەر ئۆرگەنازەیشن</h1>
-            <p class="instructions">Test your knowledge in computer organization</p>
-        </header>
-
-        <div class="progress-container">
-            <div class="progress-bar" id="progress"></div>
-        </div>
-
-        <div class="quiz" id="quiz">
-            <!-- Questions will be inserted here by JavaScript -->
-        </div>
-
-        <div class="controls">
-            <button id="prev" class="btn">Previous</button>
-            <button id="next" class="btn">Next</button>
-            <button id="submit" class="btn submit-btn">Submit Quiz</button>
-        </div>
-
-        <div id="results"></div>
+   
+<div class="top-bar">
+    <a href="index.html" class="site-title">KurdTECH</a>
+    <div class="search-container">
+        <input type="text" id="data-search" placeholder="Search ..." class="search-bar">
     </div>
-
-    <script src="script.js"></script>
+</div>
+<div class="data-container">
+    
+    <a href="os.html" class="data-box">
+        <img src="img/os.png" alt="data 1" class="data-image">
+        <div class="data-title" >Operating System (OS)</div>
+    </a>
+    
+    
+    <a href="#######" class="data-box">
+        <img src="img/ds.webp" alt="data 2" class="data-image">
+        <div class="data-title">#####</div>
+    </a>
+   
+</div>
+<div class="bottom-bar">
+    <p>© 2025 KurdTECH | <a href="about.html" style="color: #00bfff;">About</a> | <a href="mailto:cardoniakawa@gmail.com" style="color: #00bfff;">Email</a></p>
+    <div class="social-media">
+        <a href="https://www.facebook.com/share/1E44L7QohB/" target="_blank">
+            <img src="img/facebook.png" alt="Facebook" class="social-icon">
+        </a>
+        <a href="https://x.com/Cardonia_?s=09" target="_blank">
+            <img src="img/twitter.png" alt="Twitter" class="social-icon">
+        </a>
+        <a href="https://www.instagram.com/cardoniakawa?igsh=aDZuenRhNmc0bjdy" target="_blank">
+            <img src="img/instagram.jpg" alt="Instagram" class="social-icon">
+        </a>
+    </div>
+</div>
+   <script>
+document.getElementById('data-search').addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    const animeBoxes = document.querySelectorAll('.data-box');
+    
+    animeBoxes.forEach(box => {
+        const title = box.querySelector('.data-title').textContent.toLowerCase();
+        if (title.includes(searchTerm)) {
+            box.style.display = 'block';
+        } else {
+            box.style.display = 'none';
+        }
+    });
+});
+</script>
 </body>
 </html>
