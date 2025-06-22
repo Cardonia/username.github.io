@@ -9,8 +9,8 @@
     <title>KurdTechHub</title>
     <style>
         .top-bar {
-    background-color: #0a1f3a;  /* Dark blue color */
-    color: white;
+    background-color: #0a1f3a;
+    color: rgb(255, 255, 255);
     padding: 40px 0;
     width: 100%;
     position: fixed;
@@ -24,13 +24,12 @@
     align-items: center;
     justify-content: space-between;
     padding: 15px 20px;
-    /* Keep all your existing top-bar styles */
 }
 
 .site-title {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-right: auto; /* Pushes everything else to the right */
+    margin-right: auto;
     background: linear-gradient(90deg, #ff8a00, #e52e71);
     -webkit-background-clip: text;
     background-clip: text;
@@ -45,7 +44,6 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             min-height: 100vh;
-            
         }
         
         body::before {
@@ -55,13 +53,50 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.1); /* 70% visibility */
+            background-color: rgba(255, 255, 255, 0.1);
             z-index: -1;
         }
-        .bottom-bar {
-    background-color: #0a1f3a; /* Same dark blue as top bar */
-    color: white;
-    padding: 15px 0;
+        
+        .data-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 80px 20px; 
+}
+
+.data-box {
+    width: 200px;
+    height: 250px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.data-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.data-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.data-title {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #000000;
+}
+.bottom-bar {
+    background-color: #0a1f3a;
+    color: rgb(255, 255, 255);
+    padding: 15px 10px;
+    
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -70,14 +105,13 @@
     box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
 }
 
-/* Add this to prevent content from being hidden behind the bottom bar */
 body {
     padding-bottom: 60px;
 }
 .social-media {
     display: flex;
     gap: 15px;
-    margin-left: auto; /* Pushes to the right */
+    margin-left: auto; 
     padding-right: 20px;
 }
 
@@ -90,30 +124,79 @@ body {
 .social-icon:hover {
     transform: scale(1.2);
 }
-@media (max-width: 768px) {
-    /* Adjust background for mobile */
-   body {
-        background-image: url('/img/background.jpg'); /* Your mobile-specific image */
-        background-size: cover;
-        
-        background-attachment: fixed;
-        
-    }   
-    .top-bar, .bottom-bar {
-        padding: 10px 5px;
-    }
-      .site-title {
-        font-size: 1.2rem;
-    }
-}
+
 @media (max-width: 600px) {
     .social-media {
         gap: 10px;
         padding-right: 10px;
     }
     .social-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+@media (max-width: 768px) {
+  
+   body {
+        background-image: url('/img/background.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        
+    }
+    
+    .data-container {
+        flex-direction: row;
+        align-items: center;
+        padding: 100px 10px;
+    }
+    
+    .data-box {
+        width: 100px;
+        height: 210px;
+    }
+    
+    .data-image {
+        height: 140px;
+    }
+    
+    .top-bar, .bottom-bar {
+        padding: 10px 5px;
+    }
+    
+    .site-title {
+        font-size: 1.2rem;
+    }
+    
+    .social-icon {
         width: 22px;
         height: 22px;
+    }
+}
+.search-container {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.search-bar {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    width: 200px;
+    transition: width 0.3s ease;
+}
+
+.search-bar:focus {
+    outline: none;
+    width: 250px;
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        width: 120px;
+        padding: 6px 12px;
+    }
+    .search-bar:focus {
+        width: 150px;
     }
 }
     </style>
@@ -122,14 +205,18 @@ body {
    
 <div class="top-bar">
     <a href="index.html" class="site-title">KurdTechHub</a>
-    <!-- You can add other elements here that will appear to the right -->
-</div>
-<div style="margin-top: 100px; text-align: center;">
-    <div style="background-color: grey; color: white; padding: 20px; display: inline-block;">
-        soon<br>
+    <div class="search-container">
+        <input type="text" id="data-search" placeholder="Search ..." class="search-bar">
     </div>
 </div>
+<div class="data-container">
+    
+    <a href="computerparts-ram.html" class="data-box">
+        <img src="img/ram.jpg" alt="data 0" class="data-image">
+        <div class="data-title" >Random Access Memory (Ram)</div>
+    </a>
 
+</div>
 <div class="bottom-bar">
     <p>© 2025 KurdTechHub | <a href="about.html" style="color: #00bfff;">About</a> | <a href="mailto:cardoniakawa@gmail.com" style="color: #00bfff;">Email</a></p>
     <div class="social-media">
@@ -144,6 +231,20 @@ body {
         </a>
     </div>
 </div>
-   
+   <script>
+document.getElementById('data-search').addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    const animeBoxes = document.querySelectorAll('.data-box');
+    
+    animeBoxes.forEach(box => {
+        const title = box.querySelector('.data-title').textContent.toLowerCase();
+        if (title.includes(searchTerm)) {
+            box.style.display = 'block';
+        } else {
+            box.style.display = 'none';
+        }
+    });
+});
+</script>
 </body>
 </html>
